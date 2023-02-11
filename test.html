@@ -1,0 +1,38 @@
+
+
+  <!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<script>
+  function stringBalance(s) {
+  let stack = [];
+  let map = {
+    '}': '{',
+    ']': '[',
+    ')': '('
+  };
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === '{' || s[i] === '[' || s[i] === '(') {
+      stack.push(s[i]);
+    } else if (s[i] === '}' || s[i] === ']' || s[i] === ')') {
+      if (stack.length === 0 || stack[stack.length - 1] !== map[s[i]]) {
+        return false;
+      }
+      stack.pop();
+    }
+  }
+
+  return stack.length === 0;
+}
+console.log("stringBalance", stringBalance("ramu"))
+</script>
+
+</body>
+</html>
+  
+  
